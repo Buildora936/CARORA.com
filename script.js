@@ -52,6 +52,9 @@ function loadListings(){
 function saveListings(){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
 }
+function removeListings(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(listings));
+}
 
 function renderCards(items){
   container.innerHTML = '';
