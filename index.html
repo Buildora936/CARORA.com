@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carora — Voitures à vendre</title>
+  <meta name="description" content="Carora — Annonces auto professionnelles. Trouvez ou vendez votre voiture rapidement.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-red">Car</span><span class="logo-gold">ora</span>
+      </div>
+      <nav>
+        <a href="#" id="nav-home">Accueil</a>
+        <a href="#create" id="nav-create">Publier une annonce</a>
+        <a href="#contact" id="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Trouvez votre prochaine voiture — rapide & fiable</h1>
+      <p>Annonces vérifiées, présentation professionnelle, contact direct avec le vendeur.</p>
+      <div class="hero-actions">
+        <a href="#listings" class="btn primary">Voir les annonces</a>
+        <a href="#create" class="btn outline">Publier une annonce</a>
+      </div>
+    </section>
+
+    <!-- FILTRES -->
+    <section class="filters" id="listings">
+      <div class="filters-row">
+        <input type="text" id="searchInput" placeholder="Recherche (marque, modèle)..." />
+        <select id="brandFilter">
+          <option value="">Toutes marques</option>
+          <option>Toyota</option>
+          <option>Honda</option>
+          <option>BMW</option>
+          <option>Mercedes</option>
+        </select>
+        <input type="number" id="minPrice" placeholder="Prix min $" />
+        <input type="number" id="maxPrice" placeholder="Prix max $" />
+        <button id="applyFilters" class="btn">Filtrer</button>
+        <button id="resetBtn" class="btn outline">Réinitialiser</button>
+      </div>
+    </section>
+
+    <!-- LISTE ANNONCES -->
+    <section class="grid" id="cardsContainer">
+      <!-- Les cartes sont injectées par script.js -->
+    </section>
+
+    <!-- CREATE / PUBLISH FORM -->
+    <section id="create" class="create-section">
+      <h2>Publier une nouvelle annonce</h2>
+      <form id="createForm">
+        <div class="form-row">
+          <input required name="title" id="title" placeholder="Titre (ex: Toyota Corolla 2018)" />
+          <input required name="brand" id="brand" placeholder="Marque (ex: Toyota)" />
+        </div>
+        <div class="form-row">
+          <input required type="number" name="price" id="price" placeholder="Prix en $" />
+          <input name="year" id="year" placeholder="Année" />
+        </div>
+        <textarea name="description" id="description" placeholder="Description courte"></textarea>
+        <input name="image" id="image" placeholder="URL image (ou laisse vide pour placeholder)" />
+        <input name="contact" id="contactSeller" placeholder="Email du vendeur" />
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Publier (demo)</button>
+          <small class="muted">La publication sauvegarde localement et envoie un email via Formspree si configuré.</small>
+        </div>
+      </form>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/TON_ENDPOINT" method="POST"> 
+        <!-- Remplace TON_ENDPOINT par ton endpoint Formspree -->
+        <input type="email" name="email" placeholder="Votre email" required />
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button class="btn primary" type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- MODAL DETAIL -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-body">
+      <button id="closeModal" class="close">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Carora — Tous droits réservés.</p>
+      <p><small>Design rouge & or • Hébergé sur GitHub Pages</small></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
